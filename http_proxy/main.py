@@ -1,20 +1,18 @@
-import socket
 import SocketServer
-import urlparse
-
 import datetime
-
 import select
+import socket
+import urlparse
 
 
 class IPTables(object):
     __ip_tables = None
 
     def __init__(self):
-        self.black_list = {'movie.mtime.com'}
-        self.block_user = {}
+        self.black_list = {}
+        self.block_user = {'127.0.0.1'}
         self.white_list = {}
-        self.redirect_list = {'today.hit.edu.cn':'www.hit.edu.cn'}
+        self.redirect_list = {'today.hit.edu.cn': 'www.hit.edu.cn'}
 
     def get_black_list(self):
         return self.black_list
